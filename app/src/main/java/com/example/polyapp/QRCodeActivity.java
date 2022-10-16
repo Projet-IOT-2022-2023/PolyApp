@@ -6,25 +6,30 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class QRCodeActivity extends AppCompatActivity implements ScanResultReceiver {
 
-    private TextView formatTxt, contentTxt, name, surname, age;
+    private TextView txt, formatTxt, contentTxt, name, surname, cat;
     private String data;
     private String[] dataSeparated;
+    private RemoteViews remoteViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
 
+        txt = (TextView)findViewById(R.id.textView10);
         formatTxt = (TextView)findViewById(R.id.textView2);
         contentTxt = (TextView)findViewById(R.id.textView3);
         name = (TextView)findViewById(R.id.textView4);
         surname = (TextView)findViewById(R.id.textView5);
-        age = (TextView)findViewById(R.id.textView6);
+        cat = (TextView)findViewById(R.id.textView6);
+
+        txt.setVisibility(View.INVISIBLE);
     }
 
     public void scanNow(View view){
@@ -45,7 +50,8 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         contentTxt.setText("CONTENT: " + codeContent);
         name.setText("NAME: " + dataSeparated[0]);
         surname.setText("SURNAME: " + dataSeparated[1]);
-        age.setText("AGE: " + dataSeparated[2]);
+        cat.setText("AGE: " + dataSeparated[2]);
+        txt.setVisibility(View.VISIBLE);
     }
 
     @Override

@@ -26,6 +26,8 @@ public class GalleryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        // Read DB here to handle which window should be open
+
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
         Button button = (Button) view.findViewById(R.id.btn);
 
