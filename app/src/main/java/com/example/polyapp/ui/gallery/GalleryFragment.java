@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.polyapp.QRCodeActivity;
 import com.example.polyapp.R;
-import com.example.polyapp.databinding.FragmentGalleryBinding;
+import com.example.polyapp.databinding.UserConnectedGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private UserConnectedGalleryBinding binding;
 
     public GalleryFragment() {
 
@@ -28,8 +28,8 @@ public class GalleryFragment extends Fragment {
 
         // Read DB here to handle which window should be open
 
-        View view = inflater.inflate(R.layout.fragment_gallery, container, false);
-        Button button = (Button) view.findViewById(R.id.btn);
+        View view = inflater.inflate(R.layout.user_connected_gallery, container, false);
+        Button button = (Button) view.findViewById(R.id.button_add_friend);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

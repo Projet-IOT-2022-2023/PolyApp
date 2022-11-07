@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,9 +15,10 @@ import android.widget.Toast;
 public class QRCodeActivity extends AppCompatActivity implements ScanResultReceiver {
 
     private TextView txt, formatTxt, contentTxt, name, surname, cat;
+    private Button btn;
+    private ImageView img;
     private String data;
     private String[] dataSeparated;
-    private RemoteViews remoteViews;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,13 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         name = (TextView)findViewById(R.id.textView4);
         surname = (TextView)findViewById(R.id.textView5);
         cat = (TextView)findViewById(R.id.textView6);
+        img = (ImageView)findViewById(R.id.imageView3);
+
+        btn = (Button)findViewById(R.id.button);
 
         txt.setVisibility(View.INVISIBLE);
+        img.setVisibility(View.INVISIBLE);
+
     }
 
     public void scanNow(View view){
@@ -52,6 +60,8 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         surname.setText("SURNAME: " + dataSeparated[1]);
         cat.setText("AGE: " + dataSeparated[2]);
         txt.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.INVISIBLE);
+        img.setVisibility(View.VISIBLE);
     }
 
     @Override
