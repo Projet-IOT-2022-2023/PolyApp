@@ -162,5 +162,12 @@ public class DBManager {
         database.delete(DBSyntax.TABLE_NAME, null, null);
     }
 
+    /**
+     * Clear all user content inside table
+     */
+    public void deleteAllUsers(){
+        database.delete(DBSyntax.TABLE_NAME_USERS, null, null);
+    }
+
 }
 

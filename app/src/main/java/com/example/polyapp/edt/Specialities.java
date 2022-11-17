@@ -96,7 +96,9 @@ public class Specialities {
 // Class that permits to get parsing status
 class NbParsing {
     public int value;
-    // default constructor
+    /**
+     * Default constructor
+     */
     public NbParsing()
     {
         value = 0;
