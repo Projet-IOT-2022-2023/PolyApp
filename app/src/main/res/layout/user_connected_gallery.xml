@@ -77,37 +77,25 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginTop="169dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="148dp"
             android:text="AJouter un ami"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:layout_editor_absoluteX="232dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <Button
             android:id="@+id/button_friends"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="169dp"
+            android:layout_marginBottom="148dp"
             android:text="Voir mes amis"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:layout_editor_absoluteX="16dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-        <TextView
-            android:id="@+id/text_gallery"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="15dp"
-            tools:layout_editor_absoluteY="648dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Bonjour"
-        android:textSize="34sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="147dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
