@@ -1,8 +1,6 @@
-package com.example.polyapp;
+package com.example.polyapp.edt;
 
 //BEGIN CODE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-import android.util.Log;
 
 import java.io.FileInputStream;
 import java.io.IOException;

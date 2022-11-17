@@ -1,10 +1,9 @@
-package com.example.polyapp;
+package com.example.polyapp.edt;
 
 //BEGIN CODE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 import android.database.Cursor;
 import android.icu.util.Calendar;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;

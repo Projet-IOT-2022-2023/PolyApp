@@ -1,4 +1,4 @@
-package com.example.polyapp;
+package com.example.polyapp.edt;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.icu.util.Calendar;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.polyapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
