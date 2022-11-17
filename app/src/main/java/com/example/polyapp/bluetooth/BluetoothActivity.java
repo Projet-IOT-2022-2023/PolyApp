@@ -1,4 +1,4 @@
-package com.example.polyapp;
+package com.example.polyapp.bluetooth;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
@@ -24,7 +24,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.polyapp.R;
 
 import java.io.IOException;
 import java.io.InputStream;
