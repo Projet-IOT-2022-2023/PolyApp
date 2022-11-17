@@ -50,13 +50,11 @@
             android:inputType="textPersonName"
             android:text="Prénom" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName6"
+        <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Promo" />
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <Button
