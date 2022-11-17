@@ -115,7 +115,7 @@ public class UserManager {
         String selectionKeys = null;
         String[] selectionArgs = null;
 
-        Cursor DBEvents =  m_db.selectFromUsers(null,null,null);
+        Cursor DBEvents = m_db.selectFromUsers(null,null,null);
 
         List<UserStruct> userStructList = new ArrayList<UserStruct>();
 

@@ -28,6 +28,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.polyapp.R;
+import com.example.polyapp.edt.DBManager;
+import com.example.polyapp.edt.UserManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,6 +53,8 @@ public class BluetoothActivity extends AppCompatActivity {
     private ArrayAdapter<String> mArrayAdapter;
     private IntentFilter filter;
 
+    private DBManager m_db;
+
     int REQUEST_ENABLE_BLUETOOTH = 1;
     int REQUEST_ENABLE_BLUETOOTH_SCAN = 2;
     int ACTION_REQUEST_DISCOVERABLE = 3;
@@ -73,6 +77,10 @@ public class BluetoothActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth);
+
+        // Init database
+        m_db = new DBManager(this);
+        m_db.open();
 
         mButtonlisten = (Button) findViewById(R.id.buttonlisten);
         mButtongetnewdevices = (Button) findViewById(R.id.buttongetnewdevices);
@@ -108,6 +116,8 @@ public class BluetoothActivity extends AppCompatActivity {
                         REQUEST_ENABLE_BLUETOOTH);
             }
             startActivityForResult(enableIntent, REQUEST_ENABLE_BLUETOOTH);
+
+
 
         }
 
@@ -192,8 +202,18 @@ public class BluetoothActivity extends AppCompatActivity {
         mButtonsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String string = String.valueOf(mTexttosend.getText());
-                sendReceive.write(string.getBytes());
+                UserManager umgr = new UserManager(m_db);
+
+                byte[] users = null;
+
+                try {
+                    users = umgr.usersToBytes();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return;
+                }
+
+                sendReceive.write(users);
             }
         });
 
@@ -218,8 +238,11 @@ public class BluetoothActivity extends AppCompatActivity {
                     break;
                 case STATE_MESSAGE_RECEIVED:
                     byte[] readBuff = (byte[]) msg.obj;
-                    String tempMsg = new String(readBuff, 0, msg.arg1);
-                    mTextreceiveddisplayed.setText(tempMsg);
+                    UserManager umgr = new UserManager(m_db);
+                    umgr.changeUsersWithByteArray(readBuff);
+                    //String tempMsg = new String(readBuff, 0, msg.arg1);
+                    mTextreceiveddisplayed.setText("Message reçu");
+
                     break;
             }
             return true;
