@@ -38,8 +38,10 @@ public class HomeFragment extends Fragment {
         for (int i=0; i<s.listSpecialities().length;i++) list_s[i+1] = s.listSpecialities()[i];
 
         //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item,list_s);
+
+        ArrayAdapter aa = new ArrayAdapter(this.getContext(), android.R.layout.simple_spinner_item,list_s);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         //Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
