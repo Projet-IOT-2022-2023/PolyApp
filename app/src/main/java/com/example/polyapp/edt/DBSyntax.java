@@ -44,7 +44,7 @@ public class DBSyntax extends SQLiteOpenHelper {
     static final String DB_NAME = "POLYAPP.DB";
 
     // database version
-    static final int DB_VERSION = 2;
+    static final int DB_VERSION = 4;
 
     // Creating table query
     private static final String CREATE_TABLE = "create table if not exists " + TABLE_NAME + "("
@@ -55,12 +55,11 @@ public class DBSyntax extends SQLiteOpenHelper {
             + DESC  + " TEXT, "
             + RID   + " INTEGER NOT NULL);";
 
-    private static final String CREATE_TABLE_USERS = "create table if not exists " + TABLE_NAME + "("
-            + UID       + " INTEGER NOT NULL, "
-            + NAME      + " TEXT, "
-            + LAST_NAME + " INTEGER NOT NULL, "
-            + RID       + " INTEGER NOT NULL, "
-            + "PRIMARY KEY(\"" + UID + "\" AUTOINCREMENT) );";
+    private static final String CREATE_TABLE_USERS = "create table if not exists " + TABLE_NAME_USERS + "("
+            + UID       + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + NAME      + " TEXT NOT NULL, "
+            + LAST_NAME + " TEXT NOT NULL, "
+            + RID       + " INTEGER NOT NULL);";
 
     public DBSyntax(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
