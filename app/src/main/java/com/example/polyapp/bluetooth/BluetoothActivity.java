@@ -239,9 +239,13 @@ public class BluetoothActivity extends AppCompatActivity {
                 case STATE_MESSAGE_RECEIVED:
                     byte[] readBuff = (byte[]) msg.obj;
                     UserManager umgr = new UserManager(m_db);
-                    umgr.changeUsersWithByteArray(readBuff);
+                    if( umgr.changeUsersWithByteArray(readBuff) == 0){
+                        mTextreceiveddisplayed.setText("Message reçu");
+                    }else{
+                        mTextreceiveddisplayed.setText("Erreur lors du parsing");
+                    }
                     //String tempMsg = new String(readBuff, 0, msg.arg1);
-                    mTextreceiveddisplayed.setText("Message reçu");
+
 
                     break;
             }

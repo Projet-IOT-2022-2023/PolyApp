@@ -155,7 +155,7 @@ public class UserManager {
     /**
      * Convert byte array received to List<UserStruct> object and replace it in database
      * @param data
-     * @return
+     * @return return 0 if it's ok, else it returns 1
      */
     public int changeUsersWithByteArray( byte[] data ){
         // If data is empty, return an error
