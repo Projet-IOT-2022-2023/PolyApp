@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
     private DBManager db;
     private View view;
     private Button button;
+    private TextView textViewStatus;
     private TextView userNameText;
     private TextView userFirstNameText;
     private TextView userPromoText;
@@ -113,6 +114,7 @@ public class HomeFragment extends Fragment {
 
         view = inflater.inflate(R.layout.user_connected_gallery, container, false);
 
+        textViewStatus = (TextView) view.findViewById(R.id.textViewStatus);
         button = (Button) view.findViewById(R.id.buttonValidate);
         userNameText = (TextView) view.findViewById(R.id.userName);
         userFirstNameText = (TextView) view.findViewById(R.id.userFirstName);
@@ -120,7 +122,7 @@ public class HomeFragment extends Fragment {
 
         if (users.getMainUser() != null)
         {
-
+            textViewStatus.setText("Vous êtes");
             userNameText.setText(users.getMainUser().last_name);
             userFirstNameText.setText(users.getMainUser().first_name);
             userPromoText.setText(users.getMainUser().getPromoName());
@@ -128,6 +130,7 @@ public class HomeFragment extends Fragment {
 
         else
         {
+            textViewStatus.setText("Veuillez saisir vos informations");
             userNameText.setText("");
             userFirstNameText.setText("");
             userPromoText.setText("");
