@@ -1,13 +1,11 @@
 package com.example.polyapp.ui.home;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,20 +13,16 @@ import android.widget.TextView;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.polyapp.QRCodeActivity;
 import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
-import com.example.polyapp.edt.Specialities;
 import com.example.polyapp.edt.UserManager;
 
 public class HomeFragment extends Fragment {
 
-    //private FragmentHomeBinding binding;
     private String[] list_s;
     private Spinner spin;
     private UserManager users;
