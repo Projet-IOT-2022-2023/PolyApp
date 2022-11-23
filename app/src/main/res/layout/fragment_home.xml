@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textViewStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -47,10 +47,10 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16">
+            app:layout_constraintTop_toBottomOf="@+id/textViewStatus">
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/setUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -58,7 +58,7 @@
                 android:text="Nom" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/setUserFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -75,7 +75,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button_add_friend"
+            android:id="@+id/buttonValidate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="165dp"
@@ -87,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
         <Button
-            android:id="@+id/button_friends"
+            android:id="@+id/buttonClear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
@@ -99,19 +99,4 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
 </androidx.constraintlayout.widget.ConstraintLayout>

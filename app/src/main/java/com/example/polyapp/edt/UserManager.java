@@ -91,7 +91,7 @@ public class UserManager {
     }
 
     public UserStruct getMainUser(){
-        return getUserById(0);
+        return getUserById(1);
     }
 
     public void createUserByPromoID(String first_name, String last_name, int promoID){

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeEditActivity">
 
     <TextView
         android:id="@+id/textView15"
@@ -21,14 +21,11 @@
         android:id="@+id/textViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="100dp"
-        android:text="Vous êtes connecté"
+        android:text="Veuillez compléter votre profil"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        tools:layout_editor_absoluteX="48dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -39,23 +36,27 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus"
         tools:layout_editor_absoluteX="1dp">
 
-        <TextView
-            android:id="@+id/userName"
+        <EditText
+            android:id="@+id/setUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Nom" />
 
-        <TextView
-            android:id="@+id/userFirstName"
+        <EditText
+            android:id="@+id/setUserFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Prénom" />
 
-        <TextView
-            android:id="@+id/userPromo"
+        <Spinner
+            android:id="@+id/setUserPromo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <Button
@@ -63,12 +64,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginBottom="149dp"
-        android:text="Editer mes informations"
+        android:text="Valider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginBottom="148dp"
+        android:text="Effacer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

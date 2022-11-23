@@ -12,11 +12,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.polyapp.QRCodeActivity;
 import com.example.polyapp.R;
-import com.example.polyapp.databinding.UserConnectedGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
-    private UserConnectedGalleryBinding binding;
+    //private UserConnectedGalleryBinding binding;
 
     public GalleryFragment() {
 
@@ -29,7 +28,7 @@ public class GalleryFragment extends Fragment {
         // Read DB here to handle which window should be open
 
         View view = inflater.inflate(R.layout.user_connected_gallery, container, false);
-        Button button = (Button) view.findViewById(R.id.button_add_friend);
+        Button button = (Button) view.findViewById(R.id.buttonValidate);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +44,7 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        //binding = null;
     }
 
 }
