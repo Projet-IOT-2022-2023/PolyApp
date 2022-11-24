@@ -2,13 +2,13 @@
     <string name="app_name">PolyApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Genshin Impact</string>
-    <string name="nav_header_subtitle">benjam@lypotech.org</string>
+    <string name="nav_header_title">Développé par Lypotech Ltd.</string>
+    <string name="nav_header_subtitle">Nous contacter : contact@lypotech.org</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Accueil</string>
-    <string name="menu_gallery">Scanner un QR</string>
+    <string name="menu_gallery">Mes amis</string>
     <string name="menu_slideshow">Envoyer un fichier</string>
 
 

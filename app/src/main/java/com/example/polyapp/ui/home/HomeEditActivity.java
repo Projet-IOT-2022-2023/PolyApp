@@ -11,7 +11,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.polyapp.R;
-import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.Specialities;
 
 public class HomeEditActivity extends AppCompatActivity {
@@ -33,7 +32,7 @@ public class HomeEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_edit);
 
         buttonClear = (Button) this.findViewById(R.id.buttonClear);
-        buttonValidate = (Button) this.findViewById(R.id.buttonValidate);
+        buttonValidate = (Button) this.findViewById(R.id.buttonEditData);
         userNameText = (TextView) this.findViewById(R.id.setUserName);
         userFirstNameText = (TextView)this.findViewById(R.id.setUserFirstName);
         spin = (Spinner) this.findViewById(R.id.setUserPromo);

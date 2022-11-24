@@ -3,82 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.gallery.GalleryFragment">
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Bonjour"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="130dp"
+        android:text="Mes Amis"
         android:textColor="#000000"
         android:textSize="34sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="147dp" />
-
-    <TextView
-        android:id="@+id/textViewStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Veuillez compléter votre profil"
-        android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        tools:layout_editor_absoluteX="48dp" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/textViewStatus"
-        tools:layout_editor_absoluteX="1dp">
-
-        <EditText
-            android:id="@+id/setUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Nom" />
-
-        <EditText
-            android:id="@+id/setUserFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Prénom" />
-
-        <Spinner
-            android:id="@+id/setUserPromo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonValidate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="149dp"
-        android:text="Valider"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonClear"
+        android:id="@+id/buttonAddFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="165dp"
-        android:layout_marginBottom="148dp"
-        android:text="Effacer"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="123dp"
+        android:text="Ajouter un ami"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/buttonMyFriends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="125dp"
+        android:text="Ma liste d'amis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddFriend" />
 </androidx.constraintlayout.widget.ConstraintLayout>

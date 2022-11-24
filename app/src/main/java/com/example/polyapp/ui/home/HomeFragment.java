@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.UserManager;
+import com.google.android.material.navigation.NavigationView;
 
 public class HomeFragment extends Fragment {
 
@@ -28,7 +29,7 @@ public class HomeFragment extends Fragment {
     private UserManager users;
     private DBManager db;
     private View view;
-    private Button button;
+    private Button buttonEditData;
     private TextView textViewStatus;
     private TextView userNameText;
     private TextView userFirstNameText;
@@ -55,6 +56,8 @@ public class HomeFragment extends Fragment {
                             userNameText.setText(userName);
                             userFirstNameText.setText(userFirstName);
                             userPromoText.setText(userPromo);
+                            users.createUserByPromoName(userFirstName, userName, userPromo);
+                            buttonEditData.setVisibility(View.INVISIBLE);
                         }
                     }
                 }
@@ -84,7 +87,7 @@ public class HomeFragment extends Fragment {
         else
         {
             view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
-            button = (Button) view.findViewById(R.id.buttonValidate);
+            button = (Button) view.findViewById(R.id.buttonEditData);
             userNameText = (TextView) view.findViewById(R.id.setUserName);
             userFirstNameText = (TextView) view.findViewById(R.id.setUserFirstName);
             spin = (Spinner) view.findViewById(R.id.setUserPromo);
@@ -109,13 +112,16 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.user_connected_gallery, container, false);
 
         textViewStatus = (TextView) view.findViewById(R.id.textViewStatus);
-        button = (Button) view.findViewById(R.id.buttonValidate);
+        buttonEditData = (Button) view.findViewById(R.id.buttonEditData);
         userNameText = (TextView) view.findViewById(R.id.userName);
         userFirstNameText = (TextView) view.findViewById(R.id.userFirstName);
         userPromoText = (TextView) view.findViewById(R.id.userPromo);
 
+
         if (users.getMainUser() != null)
         {
+            //users.createUserByPromoName("Polaris", "Limbo", "A3 GPSE");
+            buttonEditData.setVisibility(View.INVISIBLE);
             textViewStatus.setText("Vous êtes");
             userNameText.setText(users.getMainUser().last_name);
             userFirstNameText.setText(users.getMainUser().first_name);
@@ -131,7 +137,7 @@ public class HomeFragment extends Fragment {
         }
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonEditData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
