@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/sensor"
+        style="@style/friend_title"
+        android:text="Friend name" />
+
+    <TextView
+        android:id="@+id/type"
+        style="@style/friend_properties"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Friend promo" />
+
+    <TextView
+        android:id="@+id/vendor"
+        android:text="here"
+        style="@style/friend_properties" />
+</LinearLayout>
