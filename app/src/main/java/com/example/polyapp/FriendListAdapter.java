@@ -78,6 +78,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
     public void onBindViewHolder( FriendListAdapter.FriendViewHolder holder, int position) {
         String mCurrent;
 
+        /*
         for (UserStruct currentFriend : mSensorList ) {
             mCurrent = currentFriend.last_name;
             holder.sensorItemView.setText(mCurrent);
@@ -85,7 +86,14 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
             holder.typeItemView.setText(mCurrent);
             mCurrent = currentFriend.getPromoName();
             holder.vendorItemView.setText(mCurrent);
-        }
+        }*/
+
+        mCurrent = mSensorList.get(position).last_name;
+        holder.sensorItemView.setText(mCurrent);
+        mCurrent =  mSensorList.get(position).first_name;
+        holder.typeItemView.setText(mCurrent);
+        mCurrent =  mSensorList.get(position).getPromoName();
+        holder.vendorItemView.setText(mCurrent);
 
         /*
         mCurrent= mSensorList.get(position).getName();

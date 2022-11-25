@@ -58,6 +58,70 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
 
     }
 
+    public String convertToString(String str) {
+        String correctedStr = "";
+        if(str.equals("A1"))
+            correctedStr = "A1";
+        else if(str.equals("A1 STI2D"))
+            correctedStr = "A1 STI2D";
+        else if(str.equals("A2"))
+            correctedStr = "A2";
+        else if(str.equals("A2 STI2D"))
+            correctedStr = "A2 STI2D";
+        else if(str.equals("A3 GC"))
+            correctedStr = "A3 GC";
+        else if(str.equals("A3 ICM"))
+            correctedStr = "A3 ICM";
+        else if(str.equals("A3 PROD"))
+            correctedStr = "A3 PROD";
+        else if(str.equals("A3 SB"))
+            correctedStr = "A3 SB";
+        else if(str.equals("A3 TEAM"))
+            correctedStr = "A3 TEAM";
+        else if(str.equals("A3 GI FISA"))
+            correctedStr = "A3 GI FISA";
+        else if(str.equals("A3 GI FISE"))
+            correctedStr = "A3 GI FISE";
+        else if(str.equals("A4 GC"))
+            correctedStr = "A4 GC";
+        else if(str.equals("A4 GPSE"))
+            correctedStr = "A4 GPSE";
+        else if(str.equals("A4 ICM"))
+            correctedStr = "A4 ICM";
+        else if(str.equals("A4 PROD"))
+            correctedStr = "A4 PROD";
+        else if(str.equals("A4 SB"))
+            correctedStr = "A4 SB";
+        else if(str.equals("A4 TEAM"))
+            correctedStr = "A4 TEAM";
+        else if(str.equals("A4 GI FISA"))
+            correctedStr = "A4 GI FISA";
+        else if(str.equals("A4 GI FISE"))
+            correctedStr = "A4 GI FISE";
+        else if(str.equals("A5 GC"))
+            correctedStr = "A5 GC";
+        else if(str.equals("A5 GPSE"))
+            correctedStr = "A5 GPSE";
+        else if(str.equals("A5 ICM"))
+            correctedStr = "A5 ICM";
+        else if(str.equals("A5 PROD"))
+            correctedStr = "A5 PROD";
+        else if(str.equals("A5 SB"))
+            correctedStr = "A5 SB";
+        else if(str.equals("A5 TEAM"))
+            correctedStr = "A5 TEAM";
+        else if(str.equals("A5 GI FISA"))
+            correctedStr = "A5 GI FISA";
+        else if(str.equals("A5 GI FISE"))
+            correctedStr = "A5 GI FISE";
+        else if(str.equals("DU IoT"))
+            correctedStr = "DU IoT";
+        else if(str.equals("Master AESM"))
+            correctedStr = "Master AESM";
+
+        return correctedStr;
+    }
+
     public void scanNow(View view){
         // add fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -69,7 +133,21 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
 
     public void confirmFriend(View view){
         // add fragment
-        users.createUserByPromoName(dataSeparated[0], dataSeparated[1], dataSeparated[2]);
+        //users.createUserByPromoName(dataSeparated[0], dataSeparated[1], dataSeparated[2]);
+        //users.createUserByPromoName("Polaris", "Limbo", "A3 GPSE");
+        String name = (String) dataSeparated[0];
+        String fname = (String) dataSeparated[1];
+        //String promo = (String) dataSeparated[2];
+        String promo = convertToString(dataSeparated[2]);
+        // String ppm = "A3 GPSE";  works
+        if (promo.equals("A3 GPSE"))
+            Log.d("STATUS","OK");
+        else
+            Log.d("STATUS","BAD");
+        users.createUserByPromoName(name, fname, promo);
+        Log.d("name",dataSeparated[0]);
+        Log.d("fname",dataSeparated[1]);
+        Log.d("promo",dataSeparated[2]);
         QRCodeActivity.super.onBackPressed();
     }
 
