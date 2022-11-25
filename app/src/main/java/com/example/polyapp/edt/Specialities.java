@@ -43,7 +43,7 @@ public class Specialities {
             "A1", "A1 STI2D", "A2", "A2 STI2D",
             "A3 GC", "A3 GPSE", "A3 ICM", "A3 PROD", "A3 SB", "A3 TEAM", "A3 GI FISA", "A3 GI FISE",
             "A4 GC", "A4 GPSE", "A4 ICM", "A4 PROD", "A4 SB", "A4 TEAM", "A4 GI FISA", "A4 GI FISE",
-            "A3 GC", "A5 GPSE", "A5 ICM", "A5 PROD", "A5 SB", "A5 TEAM", "A5 GI FISA", "A5 GI FISE",
+            "A5 GC", "A5 GPSE", "A5 ICM", "A5 PROD", "A5 SB", "A5 TEAM", "A5 GI FISA", "A5 GI FISE",
             "DU IoT" , "Master AESM"
     };
     private static final int[] values = new int[]{
