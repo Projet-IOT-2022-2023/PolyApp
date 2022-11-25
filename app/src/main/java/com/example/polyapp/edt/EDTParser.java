@@ -52,9 +52,9 @@ public class EDTParser {
         return cal.getTimeInMillis()/1000;
     }
 
-    public void parse(String path, int resourceID) throws IOException {
+    public void parse(FileInputStream file_stream, int resourceID) throws IOException {
 
-        inputStream = new FileInputStream(path);
+        inputStream = file_stream;
         sc = new Scanner(inputStream, "UTF-8");
 
         // Process each line of the response
