@@ -40,7 +40,7 @@ public class EDTRefresh extends AsyncTask<Void,Void,Void>{
         // Assign class which contains specialities with their resource IDs
         m_resources = new Specialities();
 
-        // Assign the button for the feedback
+        // Assign the buttonQRScan for the feedback
         m_requestButton = requestButton;
 
         m_nbParsed.value = 0;
@@ -50,7 +50,7 @@ public class EDTRefresh extends AsyncTask<Void,Void,Void>{
     // Executed before execute task in parallel
     @Override
     protected void onPreExecute(){
-        // Disable button
+        // Disable buttonQRScan
         m_requestButton.setEnabled(false);
     }
 
@@ -100,7 +100,7 @@ public class EDTRefresh extends AsyncTask<Void,Void,Void>{
     @Override
     protected void onPostExecute(Void result){
 
-        // Enable button
+        // Enable buttonQRScan
         //m_requestButton.setEnabled(true);
 
     }

@@ -26,8 +26,8 @@ public class HomeFragment extends Fragment {
 
     private String[] list_s;
     private Spinner spin;
-    private UserManager users;
     private DBManager db;
+    private UserManager users;
     private View view;
     private Button buttonEditData;
     private TextView textViewStatus;
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
         else
         {
             view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
-            button = (Button) view.findViewById(R.id.buttonEditData);
+            buttonQRScan = (Button) view.findViewById(R.id.buttonEditData);
             userNameText = (TextView) view.findViewById(R.id.setUserName);
             userFirstNameText = (TextView) view.findViewById(R.id.setUserFirstName);
             spin = (Spinner) view.findViewById(R.id.setUserPromo);
@@ -172,7 +172,7 @@ public class HomeFragment extends Fragment {
         //View view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
 
 /*
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonQRScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 userName = userNameText.getText().toString();
