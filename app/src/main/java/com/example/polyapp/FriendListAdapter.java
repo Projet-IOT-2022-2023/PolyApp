@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.polyapp.edt.EDTActivity;
 import com.example.polyapp.edt.UserStruct;
 
 import java.util.List;
@@ -53,11 +54,21 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
             int mPosition =  getAdapterPosition();
             // Use that to access the affected item in mWordList.
             UserStruct sensorClicked = mSensorList.get(mPosition);
+
+            int resourceID = sensorClicked.getPromoID();
+
             Log.d("sensor position", String.valueOf(mPosition));
-            Intent intent = new Intent (v.getContext(),MyDisplayFriend.class);// the trick : indicates v.getContext()...
+
+            Intent intent = new Intent(v.getContext(), EDTActivity.class);
+            Bundle b = new Bundle();
+            b.putInt("promoID", resourceID); //Your id
+            intent.putExtras(b); //Put your id to your next Intent
+            v.getContext().startActivity(intent);
+
+            //          Intent intent = new Intent (v.getContext(),MyDisplayFriend.class);// the trick : indicates v.getContext()...
             //String message = String.valueOf(sensorClicked.getType());
             //intent.putExtra(EXTRA_MESSAGE, message);
-            v.getContext().startActivity(intent);// the trick : indicates v.getContext()...
+            //          v.getContext().startActivity(intent);// the trick : indicates v.getContext()...
         }
 
 
