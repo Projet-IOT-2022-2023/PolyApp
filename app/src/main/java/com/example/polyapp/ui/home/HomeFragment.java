@@ -1,12 +1,14 @@
 package com.example.polyapp.ui.home;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,7 +22,12 @@ import androidx.fragment.app.Fragment;
 import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.UserManager;
-import com.google.android.material.navigation.NavigationView;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class HomeFragment extends Fragment {
 
@@ -38,6 +45,8 @@ public class HomeFragment extends Fragment {
     private String userFirstName;
     private String userPromo;
 
+    private ImageView imageCode;
+
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -53,6 +62,7 @@ public class HomeFragment extends Fragment {
                             userName = extras.getString("name");
                             userFirstName = extras.getString("firstName");
                             userPromo = extras.getString("promo");
+                            generateQR();
                             userNameText.setText(userName);
                             userFirstNameText.setText(userFirstName);
                             userPromoText.setText(userPromo);
@@ -116,7 +126,7 @@ public class HomeFragment extends Fragment {
         userNameText = (TextView) view.findViewById(R.id.userName);
         userFirstNameText = (TextView) view.findViewById(R.id.userFirstName);
         userPromoText = (TextView) view.findViewById(R.id.userPromo);
-
+        imageCode = (ImageView) view.findViewById(R.id.imageCode);
 
         if (users.getMainUser() != null)
         {
@@ -126,6 +136,10 @@ public class HomeFragment extends Fragment {
             userNameText.setText(users.getMainUser().last_name);
             userFirstNameText.setText(users.getMainUser().first_name);
             userPromoText.setText(users.getMainUser().getPromoName());
+            userName = users.getMainUser().last_name;
+            userFirstName = users.getMainUser().first_name;
+            userPromo = users.getMainUser().getPromoName();
+            generateQR();
         }
 
         else
@@ -183,6 +197,22 @@ public class HomeFragment extends Fragment {
             }
         });*/
         return view;
+    }
+
+    public void generateQR() {
+        //getting text from input text field.
+
+        String myText = userFirstName + ";" + userName + ";" + userPromo;            //initializing MultiFormatWriter for QR code
+        MultiFormatWriter mWriter = new MultiFormatWriter();
+        try {
+            //BitMatrix class to encode entered text and set Width & Height
+            BitMatrix mMatrix = mWriter.encode(myText, BarcodeFormat.QR_CODE, 400, 400);
+            BarcodeEncoder mEncoder = new BarcodeEncoder();
+            Bitmap mBitmap = mEncoder.createBitmap(mMatrix);//creating bitmap of code
+            imageCode.setImageBitmap(mBitmap);//Setting generated QR code to imageView
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

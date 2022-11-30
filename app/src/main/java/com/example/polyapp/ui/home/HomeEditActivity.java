@@ -2,11 +2,15 @@ package com.example.polyapp.ui.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,6 +30,8 @@ public class HomeEditActivity extends AppCompatActivity {
     private String userFirstName;
     private String userPromo;
 
+    private ImageView imageCode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,7 @@ public class HomeEditActivity extends AppCompatActivity {
         userNameText = (TextView) this.findViewById(R.id.setUserName);
         userFirstNameText = (TextView)this.findViewById(R.id.setUserFirstName);
         spin = (Spinner) this.findViewById(R.id.setUserPromo);
+        imageCode = (ImageView) this.findViewById(R.id.imageCode);
 
         buttonValidate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -69,14 +76,20 @@ public class HomeEditActivity extends AppCompatActivity {
         userPromo = spin.getSelectedItem().toString();
         Intent t = new Intent();
         Bundle extras = new Bundle();
+
         extras.putString("name", userName);
         extras.putString("firstName", userFirstName);
         extras.putString("promo", userPromo);
+
         t.putExtras(extras);
         setResult(69, t);
 
         HomeEditActivity.super.onBackPressed();
+
+
+
     }
 
 
-}
+
+    }
