@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.polyapp.MainActivity;
 import com.example.polyapp.MyFriendsActivity;
 import com.example.polyapp.QRCodeActivity;
 import com.example.polyapp.R;
@@ -19,6 +20,7 @@ public class GalleryFragment extends Fragment {
     //private UserConnectedGalleryBinding binding;
     private Button buttonAddFriend;
     private Button buttonMyFriends;
+    private View view;
 
     public GalleryFragment() {
 
@@ -29,26 +31,35 @@ public class GalleryFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         // Read DB here to handle which window should be open
+        if (((MainActivity)getActivity()).getMainUserRegist())
+        {
+            view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
+            buttonAddFriend = (Button) view.findViewById(R.id.buttonAddFriend);
+            buttonMyFriends = (Button) view.findViewById(R.id.buttonMyFriends);
 
-        View view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
-        buttonAddFriend = (Button) view.findViewById(R.id.buttonAddFriend);
-        buttonMyFriends = (Button) view.findViewById(R.id.buttonMyFriends);
+            buttonAddFriend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent in = new Intent(getActivity(), QRCodeActivity.class);
+                    startActivity(in);
+                }
+            });
 
-        buttonAddFriend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getActivity(), QRCodeActivity.class);
-                startActivity(in);
-            }
-        });
+            buttonMyFriends.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent in = new Intent(getActivity(), MyFriendsActivity.class);
+                    startActivity(in);
+                }
+            });
+        }
 
-        buttonMyFriends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(getActivity(), MyFriendsActivity.class);
-                startActivity(in);
-            }
-        });
+        else
+        {
+            view = inflater.inflate(R.layout.fragment_not_registered, container, false);
+        }
+
+
 
 
         return view;

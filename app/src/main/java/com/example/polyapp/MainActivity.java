@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.polyapp.ui.MainUserRegisterChecker;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -21,11 +22,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.polyapp.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainUserRegisterChecker {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private static final int REQUEST_WRITE_STORAGE = 112;
+    private Boolean isMainUserRegistered = Boolean.FALSE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,5 +98,16 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean hasWritePermissions() {
         return (ContextCompat.checkSelfPermission(this.getBaseContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+    }
+
+    @Override
+    public Boolean getMainUserRegist() {
+        return this.isMainUserRegistered;
+    }
+
+    @Override
+    public void setMainUserRegist(Boolean status) {
+        this.isMainUserRegistered = status;
+        return;
     }
 }

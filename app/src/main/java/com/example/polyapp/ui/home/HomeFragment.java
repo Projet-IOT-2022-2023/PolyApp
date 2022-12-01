@@ -19,6 +19,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.polyapp.MainActivity;
 import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.UserManager;
@@ -68,6 +69,7 @@ public class HomeFragment extends Fragment {
                             userPromoText.setText(userPromo);
                             users.createUserByPromoName(userFirstName, userName, userPromo);
                             buttonEditData.setVisibility(View.INVISIBLE);
+                            ((MainActivity)getActivity()).setMainUserRegist(Boolean.TRUE);
                         }
                     }
                 }
@@ -140,6 +142,7 @@ public class HomeFragment extends Fragment {
             userFirstName = users.getMainUser().first_name;
             userPromo = users.getMainUser().getPromoName();
             generateQR();
+            ((MainActivity)getActivity()).setMainUserRegist(Boolean.TRUE);
         }
 
         else
