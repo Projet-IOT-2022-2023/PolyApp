@@ -26,6 +26,7 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
     private TextView txt, formatTxt, contentTxt, name, firstName, cat;
     private Button btn;
     private Button buttonConfirmFriend;
+    private Button buttonCancelFriend;
     private ImageView img;
     private String data;
     private String[] dataSeparated;
@@ -51,13 +52,14 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
 
         btn = (Button)findViewById(R.id.buttonQRScan);
         buttonConfirmFriend = (Button)findViewById(R.id.buttonConfirmFriend);
+        buttonCancelFriend = (Button)findViewById(R.id.buttonCancelFriend);
 
         txt.setVisibility(View.INVISIBLE);
         img.setVisibility(View.INVISIBLE);
         buttonConfirmFriend.setVisibility(View.INVISIBLE);
-
+        buttonCancelFriend.setVisibility(View.INVISIBLE);
     }
-
+/*
     public String convertToString(String str) {
         String correctedStr = "";
         if(str.equals("A1"))
@@ -120,7 +122,7 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
             correctedStr = "Master AESM";
 
         return correctedStr;
-    }
+    }*/
 
     public void scanNow(View view){
         // add fragment
@@ -137,17 +139,12 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         //users.createUserByPromoName("Polaris", "Limbo", "A3 GPSE");
         String name = (String) dataSeparated[0];
         String fname = (String) dataSeparated[1];
-        //String promo = (String) dataSeparated[2];
-        String promo = convertToString(dataSeparated[2]);
-        // String ppm = "A3 GPSE";  works
-        if (promo.equals("A3 GPSE"))
-            Log.d("STATUS","OK");
-        else
-            Log.d("STATUS","BAD");
+        String promo = (String) dataSeparated[2];
         users.createUserByPromoName(name, fname, promo);
-        Log.d("name",dataSeparated[0]);
-        Log.d("fname",dataSeparated[1]);
-        Log.d("promo",dataSeparated[2]);
+        QRCodeActivity.super.onBackPressed();
+    }
+
+    public void cancelFriend(View view){
         QRCodeActivity.super.onBackPressed();
     }
 
@@ -156,8 +153,8 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         // display it on screen
         data = codeContent;
         dataSeparated = data.split(";");
-        formatTxt.setText("FORMAT: " + codeFormat);
-        contentTxt.setText("CONTENT: " + codeContent);
+        //formatTxt.setText("FORMAT: " + codeFormat);
+        //contentTxt.setText("CONTENT: " + codeContent);
         name.setText("Nom : " + dataSeparated[0]);
         firstName.setText("Prénom : " + dataSeparated[1]);
         cat.setText("Promo : " + dataSeparated[2]);
@@ -165,6 +162,7 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         btn.setVisibility(View.INVISIBLE);
         img.setVisibility(View.VISIBLE);
         buttonConfirmFriend.setVisibility(View.VISIBLE);
+        buttonCancelFriend.setVisibility(View.VISIBLE);
     }
 
     @Override
