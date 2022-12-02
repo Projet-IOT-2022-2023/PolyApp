@@ -53,6 +53,7 @@ public class BluetoothActivity extends AppCompatActivity {
     private IntentFilter filter;
 
     private DBManager m_db;
+    private UserManager users;
 
     int REQUEST_ENABLE_BLUETOOTH = 1;
     int REQUEST_ENABLE_BLUETOOTH_SCAN = 2;
@@ -80,6 +81,7 @@ public class BluetoothActivity extends AppCompatActivity {
         // Init database
         m_db = new DBManager(this);
         m_db.open();
+        users = new UserManager(m_db);
 
         mButtonlisten = (Button) findViewById(R.id.buttonlisten);
         mButtongetnewdevices = (Button) findViewById(R.id.buttongetnewdevices);
@@ -201,18 +203,12 @@ public class BluetoothActivity extends AppCompatActivity {
         mButtonsend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserManager umgr = new UserManager(m_db);
+                byte[] usersByte = null;
 
-                byte[] users = null;
+                usersByte = users.usersToBytes();
 
-                try {
-                    users = umgr.usersToBytes();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return;
-                }
+                sendReceive.write(usersByte);
 
-                sendReceive.write(users);
             }
         });
 
@@ -237,8 +233,8 @@ public class BluetoothActivity extends AppCompatActivity {
                     break;
                 case STATE_MESSAGE_RECEIVED:
                     byte[] readBuff = (byte[]) msg.obj;
-                    UserManager umgr = new UserManager(m_db);
-                    if( umgr.changeUsersWithByteArray(readBuff) == 0){
+
+                    if( users.addUsersWithByteArray(readBuff) == 0){
                         mTextreceiveddisplayed.setText("Message reçu");
                     }else{
                         mTextreceiveddisplayed.setText("Erreur lors du parsing");
@@ -303,7 +299,7 @@ public class BluetoothActivity extends AppCompatActivity {
                     REQUEST_ENABLE_BLUETOOTH_SCAN);
         }
         // ne pas oublier de désenregistrer le récepteur ACTION_FOUND
-        unregisterReceiver(receiver);
+        //unregisterReceiver(receiver);
     }
 
 

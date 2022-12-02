@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainUserRegisterC
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private static final int REQUEST_WRITE_STORAGE = 112;
-    private Boolean isMainUserRegistered = Boolean.FALSE;
+    private Boolean isMainUserRegistered = Boolean.TRUE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

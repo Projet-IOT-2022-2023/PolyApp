@@ -167,6 +167,8 @@ public class DBManager {
      */
     public void deleteAllUsers(){
         database.delete(DBSyntax.TABLE_NAME_USERS, null, null);
+        database.execSQL("DROP TABLE IF EXISTS " + DBSyntax.TABLE_NAME_USERS);
+        database.execSQL(DBSyntax.CREATE_TABLE_USERS);
     }
 
 }

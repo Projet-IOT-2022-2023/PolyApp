@@ -1,12 +1,14 @@
 package com.example.polyapp.edt;
 
 import android.database.Cursor;
+import android.util.Log;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,20 +138,20 @@ public class UserManager {
      * @return OutputStream of List<UserStruct> cast in byte array
      * @throws IOException
      */
-    public byte[] usersToBytes() throws IOException {
+    public byte[] usersToBytes(){
 
         // Get all users
         List<UserStruct> users = getAllUsers();
 
-        // Stream data in ByteArrayOutputStream
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(users.toArray());
-        oos.flush();
+        String usersInString = "";
 
-        // Convert ByteArrayOutputStream to byte array
-        byte [] data = bos.toByteArray();
-        return data;
+        for(int i=0; i<users.size();i++){
+            // Add user in String format
+            usersInString += users.get(i).first_name + "\t" + users.get(i).last_name + "\t" + users.get(i).promo_ID + "\n";
+        }
+
+        //s.substring(0, s.length() - 1);
+        return usersInString.getBytes(StandardCharsets.UTF_8);
     }
 
     /**
@@ -157,36 +159,28 @@ public class UserManager {
      * @param data
      * @return return 0 if it's ok, else it returns 1
      */
-    public int changeUsersWithByteArray( byte[] data ){
+    public int addUsersWithByteArray( byte[] data ){
         // If data is empty, return an error
         if (data == null) return 1;
 
-        // Create the new object
-        UserStruct[] users = null;
-        try {
-            // Create a ByteArrayInputStream to convert the byte array to List<UserStruct>
-            ByteArrayInputStream bi = new ByteArrayInputStream(data);
-            ObjectInputStream oi = new ObjectInputStream(bi);
+        String s = new String(data, StandardCharsets.UTF_8);
 
-            // Try to cast the data into List<UserStruct> object
-            users = (UserStruct[]) oi.readObject();
+        String usersString[] = s.split("\n");
 
-            // Close stream
-            bi.close();
-            oi.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 1;
-        }
-
-        // Remove old users
         m_db.deleteAllUsers();
 
-        // For each user in List<UserStruct>
-        for(int i=0;i<users.length;i++){
-            m_db.insertUser(users[i].first_name,users[i].last_name,users[i].getPromoID());
+        for(int i=0; i<usersString.length-1; i++){
+            try {
+                String userParams[] = usersString[i].split("\t");
+                Log.d("FIRSTNAME",userParams[0]);
+                Log.d("LASTNAME",userParams[1]);
+                Log.d("PROMOID",userParams[2]);
+                createUserByPromoID(userParams[0],userParams[1],Integer.parseInt(userParams[2]));
+            }catch (Exception e){
+                e.printStackTrace();
+                return 1;
+            }
         }
-
         return 0;
     }
 

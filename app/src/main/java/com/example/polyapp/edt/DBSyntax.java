@@ -55,7 +55,7 @@ public class DBSyntax extends SQLiteOpenHelper {
             + DESC  + " TEXT, "
             + RID   + " INTEGER NOT NULL);";
 
-    private static final String CREATE_TABLE_USERS = "create table if not exists " + TABLE_NAME_USERS + "("
+    public static final String CREATE_TABLE_USERS = "create table if not exists " + TABLE_NAME_USERS + "("
             + UID       + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + NAME      + " TEXT NOT NULL, "
             + LAST_NAME + " TEXT NOT NULL, "
@@ -64,6 +64,7 @@ public class DBSyntax extends SQLiteOpenHelper {
     public DBSyntax(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
+
 
     // When class is created, create table if not exists
     @Override
