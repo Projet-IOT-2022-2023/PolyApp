@@ -2,13 +2,15 @@ package com.example.polyapp.edt;
 
 import android.database.Cursor;
 
-public class UserStruct {
+import java.io.Serializable;
+
+public class UserStruct implements Serializable {
     public String first_name;
     public String last_name;
 
     public int user_ID;
 
-    private int promo_ID;
+    public int promo_ID;
 
     /**
      * Constructor of the UserStruct class
