@@ -144,7 +144,7 @@ public class UserManager {
         // Stream data in ByteArrayOutputStream
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(users);
+        oos.writeObject(users.toArray());
         oos.flush();
 
         // Convert ByteArrayOutputStream to byte array
@@ -162,14 +162,14 @@ public class UserManager {
         if (data == null) return 1;
 
         // Create the new object
-        List<UserStruct> users = null;
+        UserStruct[] users = null;
         try {
             // Create a ByteArrayInputStream to convert the byte array to List<UserStruct>
             ByteArrayInputStream bi = new ByteArrayInputStream(data);
             ObjectInputStream oi = new ObjectInputStream(bi);
 
             // Try to cast the data into List<UserStruct> object
-            users = (List<UserStruct>) oi.readObject();
+            users = (UserStruct[]) oi.readObject();
 
             // Close stream
             bi.close();
@@ -183,8 +183,8 @@ public class UserManager {
         m_db.deleteAllUsers();
 
         // For each user in List<UserStruct>
-        for(int i=0;i<users.size();i++){
-            m_db.insertUser(users.get(i).first_name,users.get(i).last_name,users.get(i).getPromoID());
+        for(int i=0;i<users.length;i++){
+            m_db.insertUser(users[i].first_name,users[i].last_name,users[i].getPromoID());
         }
 
         return 0;
