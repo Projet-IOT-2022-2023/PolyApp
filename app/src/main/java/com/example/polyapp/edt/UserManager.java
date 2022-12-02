@@ -144,7 +144,7 @@ public class UserManager {
         // Stream data in ByteArrayOutputStream
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(users.toArray());
+        oos.writeObject(users);
         oos.flush();
 
         // Convert ByteArrayOutputStream to byte array
