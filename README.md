@@ -65,6 +65,32 @@ Il y a également une classe `NbParsing` qui permet de compter le nombre de pars
 #### Le dossier `ui`
 Ce dossier contient les classes permettant de gérer les affichages de l'application (en dehors de l'emploi du temps), ainsi que l'ajout d'amis (via le QR Code) et l'envoi de la liste des utilisateurs à un autre appareil (via le bluetooth).
 
+Ce dossier est composé de 3 sous-dossiers:
+
+##### Le sous-dossier `bluetooth`
+Ce sous-dossier contient les classes permettant de gérer l'envoi de la liste des utilisateurs à un autre appareil via le bluetooth.
+Il est composé de deux classes:
+- `BluetoothFragment` qui permet de lancer `BluetoothActivity`.
+- `BluetoothActivity` qui permet d'afficher la liste des appareils bluetooth disponibles et de choisir l'appareil à qui envoyer la liste des utilisateurs. Elle permet également de gérer l'envoi de la liste des utilisateurs à l'appareil choisi.
+
+##### Le sous-dossier `friends`
+Ce sous-dossier contient les classes permettant de gérer la page des amis de l'utilisateur.
+
+Il y a deux parties dans ce sous-dossier.
+
+La première partie permet de gérer l'ajout d'amis via le QR Code. Elle est composée de trois classes: `ScanFragment`et `QRCodeActivity` qui permettent de scanner le QR Code d'un ami et de l'ajouter dans la BDD (via `UserManager`). En cas d'erreur, la toisième classe `NoScanResultException` est exécutée.
+
+La deuxième partie permet de gérer la page des amis de l'utilisateur. Elle est composée de trois classes: `FriendsActivity` qui permet d'afficher la liste des amis de l'utilisateur. Chaques amis est affiché via la classe `FriendListAdapter`.
+
+Enfin, il y a une classe `MyFriendsFragment` qui permet de lancer `FriendsActivity` (pour afficher la liste des amis de l'utilisateur) ou `QRCodeActivity` (pour ajouter un ami via le QR Code).
+
+##### Le sous-dossier `home`
+Ce sous-dossier contient les classes permettant de gérer la page d'accueil de l'application.
+
+Il est composé de deux classes:
+- `HomeFragment` qui permet d'afficher la page d'accueil de l'application. Si l'utilisateur a saisi son nom, prénom et promo, il est affiché sur la page d'accueil avec son QR Code. Sinon, il est invité à saisir ses informations via la classe `HomeEditActivity`.
+- `HomeEditActivity` qui permet de saisir les informations de l'utilisateur (nom, prénom, promo) et de les enregistrer dans la BDD (via `UserManager`).
+
 ## Credits
 
 > Copyright (c) 2022 Lypotech
