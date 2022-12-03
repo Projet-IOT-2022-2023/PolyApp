@@ -52,12 +52,4 @@ public class MyFriendsActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void myFunction(View view){ // when we click on the "List of sensors"
-        //Log.d("sensor","myfunction");
-        Intent intent = new Intent(this, MyDisplayFriend.class); // from this context to the new activity
-        //String message = "Hello";
-        //intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-
-    }
 }
