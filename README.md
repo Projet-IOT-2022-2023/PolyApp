@@ -21,9 +21,45 @@ La page des amis permet à l'utilisateur de visualiser ses amis et de les ajoute
 
 ### Ajout d'un ami
 
-## Architecture de PolyApp
+## Fonctionnement de l'application
+
+### Architecture de l'application
+
+Ci-dessous, vous trouverez le diagramme de classes de l'application:
 
 ![Architecture](https://github.com/Projet-IOT-2022-2023/PolyApp/raw/main/imgs/scheme-polyapp.png)
+
+Ce diagramme permet de visualiser les différentes intéractions entre les classes de l'application ainsi que les liens entre les classes et les interfaces (XML).
+
+### Définition des classes
+
+Le projet est composé de 24 classes réparties dans 2 dossiers:
+
+#### edt
+Ce dossier contient les classes permettant de gérer et afficher l'emploi du temps de l'utilisateur. Il contient également des classes permettant de gérer les utilisateurs et leurs amis.
+
+Pour cela, il y a une partie de gestion de base de données (BDD) avec les classes:
+- `DBSyntax` qui permet de définir les différentes requêtes SQL utilisées dans l'application (nom des tables, colonnes, etc.)
+- `DBManager` qui permet de gérer la BDD et de l'initialiser si elle n'existe pas (création des tables, insertion des données, etc.)
+
+Il y a une partie permettant de faire la liaison entre le reste de l'application et la BDD avec les classes:
+- `UserStruct` qui permet de définir un utilisateur et ses attributs
+- `EventStruct` qui permet de définir un événement (nom, salle, jour, heure, etc.) et ses attributs
+- `UserManager` qui permet de gérer les utilisateurs et leurs amis (ajout, suppression, recherche, etc.)
+- `EDTGet` qui permet de récupérer les données de l'emploi du temps de l'utilisateur et de ses amis
+
+Il y a une partie permettant d'actualiser l'emploi du temps de l'utilisateur (via le serveur de l'université) avec les classes:
+- `ÈDTRefresh` qui permet de lancer la mise à jour de l'emploi du temps de toutes les promos de Polytech
+- `EDTDownload` qui permet de télécharger l'emploi du temps d'une promo de Polytech sur le serveur de l'université
+- `EDTParser` qui permet de parser le fichier iCal téléchargé et de récupérer les données de l'emploi du temps
+
+Enfin, il y a une partie permettant d'afficher l'emploi du temps de l'utilisateur et de ses amis avec les classes:
+- `EDTActivity` qui permet d'afficher l'emploi du temps de l'utilisateur ou de ses amis
+
+Il y a également une classe `NbParsing` qui permet de compter le nombre de parsing effectués par l'application (pour savoir si le téléchargement de l'emploi du temps est terminé) et une classe `Specialities` qui permettent de définir le nombre de promotions de Polytech et les spécialités de Polytech.
+
+#### ui
+Ce dossier contient les classes permettant de gérer les affichages de l'application (en dehors de l'emploi du temps), ainsi que l'ajout d'amis (via le QR Code) et l'envoi de la liste des utilisateurs à un autre appareil (via le bluetooth).
 
 ## Credits
 
