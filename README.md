@@ -24,3 +24,5 @@ La page des amis permet à l'utilisateur de visualiser ses amis, de les ajouter 
 ## Credits
 
 > Copyright (c) 2022 Lypotech
+
+<a href="https://imgur.com/mSTj2Tf"><img src="https://i.imgur.com/mSTj2Tf.png" title="source: imgur.com" /></a>
