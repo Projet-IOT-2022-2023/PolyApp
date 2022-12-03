@@ -33,9 +33,13 @@ Ce diagramme permet de visualiser les différentes intéractions entre les class
 
 ### Définition des classes
 
-Le projet est composé de 24 classes réparties dans 2 dossiers:
+Le projet est composé de 24 classes. 
 
-#### edt
+Il y a tout d'abord la classe `MainActivity` qui est la classe principale de l'application. C'est elle qui est appelée au lancement de l'application.
+
+Les autres classes sont réparties dans 2 dossiers:
+
+#### Le dossier `edt`
 Ce dossier contient les classes permettant de gérer et afficher l'emploi du temps de l'utilisateur. Il contient également des classes permettant de gérer les utilisateurs et leurs amis.
 
 Pour cela, il y a une partie de gestion de base de données (BDD) avec les classes:
@@ -58,7 +62,7 @@ Enfin, il y a une partie permettant d'afficher l'emploi du temps de l'utilisateu
 
 Il y a également une classe `NbParsing` qui permet de compter le nombre de parsing effectués par l'application (pour savoir si le téléchargement de l'emploi du temps est terminé) et une classe `Specialities` qui permettent de définir le nombre de promotions de Polytech et les spécialités de Polytech.
 
-#### ui
+#### Le dossier `ui`
 Ce dossier contient les classes permettant de gérer les affichages de l'application (en dehors de l'emploi du temps), ainsi que l'ajout d'amis (via le QR Code) et l'envoi de la liste des utilisateurs à un autre appareil (via le bluetooth).
 
 ## Credits
