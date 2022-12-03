@@ -1,4 +1,4 @@
-package com.example.polyapp.ui.slideshow;
+package com.example.polyapp.ui.bluetooth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import com.example.polyapp.R;
 import com.example.polyapp.bluetooth.BluetoothActivity;
 //import com.example.polyapp.databinding.FragmentSlideshowBinding;
 
-public class SlideshowFragment extends Fragment {
+public class BluetoothFragment extends Fragment {
 
     //private FragmentSlideshowBinding binding;
     private View view;

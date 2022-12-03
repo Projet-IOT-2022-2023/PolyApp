@@ -1,4 +1,4 @@
-package com.example.polyapp.ui.gallery;
+package com.example.polyapp.ui.friends;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,14 +15,14 @@ import com.example.polyapp.MyFriendsActivity;
 import com.example.polyapp.QRCodeActivity;
 import com.example.polyapp.R;
 
-public class GalleryFragment extends Fragment {
+public class MyFriendsFragment extends Fragment {
 
     //private UserConnectedGalleryBinding binding;
     private Button buttonAddFriend;
     private Button buttonMyFriends;
     private View view;
 
-    public GalleryFragment() {
+    public MyFriendsFragment() {
 
     }
 

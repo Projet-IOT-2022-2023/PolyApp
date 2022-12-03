@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.polyapp.ui.gallery.GalleryFragment"
+        android:name="com.example.polyapp.ui.friends.MyFriendsFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_home_registered" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.polyapp.ui.slideshow.SlideshowFragment"
+        android:name="com.example.polyapp.ui.bluetooth.BluetoothFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_bluetooth" />
 </navigation>
