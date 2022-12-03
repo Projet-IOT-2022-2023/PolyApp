@@ -1,10 +1,12 @@
-package com.example.polyapp;
+package com.example.polyapp.ui.friends;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.polyapp.R;
 
 public class MyDisplayFriend extends AppCompatActivity {
 

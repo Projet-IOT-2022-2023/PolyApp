@@ -1,4 +1,4 @@
-package com.example.polyapp;
+package com.example.polyapp.ui.friends.qrscanner;
 
 import android.os.Bundle;
 

@@ -1,25 +1,19 @@
-package com.example.polyapp;
+package com.example.polyapp.ui.friends.qrscanner;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.UserManager;
-import com.example.polyapp.ui.home.HomeEditActivity;
 
 public class QRCodeActivity extends AppCompatActivity implements ScanResultReceiver {
 

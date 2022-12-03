@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.polyapp.MainActivity;
 import com.example.polyapp.R;
-import com.example.polyapp.bluetooth.BluetoothActivity;
 //import com.example.polyapp.databinding.FragmentSlideshowBinding;
 
 public class BluetoothFragment extends Fragment {

@@ -1,4 +1,6 @@
-package com.example.polyapp;
+package com.example.polyapp.ui.friends.qrscanner;
+
+import com.example.polyapp.ui.friends.qrscanner.NoScanResultException;
 
 public interface ScanResultReceiver {
 

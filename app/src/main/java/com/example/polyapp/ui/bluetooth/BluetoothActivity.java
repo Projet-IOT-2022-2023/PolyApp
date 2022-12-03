@@ -1,4 +1,4 @@
-package com.example.polyapp.bluetooth;
+package com.example.polyapp.ui.bluetooth;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;

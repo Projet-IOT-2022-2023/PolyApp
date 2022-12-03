@@ -1,4 +1,4 @@
-package com.example.polyapp;
+package com.example.polyapp.ui.friends;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.UserManager;
 import com.example.polyapp.edt.UserStruct;
@@ -53,7 +54,7 @@ public class MyFriendsActivity extends AppCompatActivity {
 
     public void myFunction(View view){ // when we click on the "List of sensors"
         //Log.d("sensor","myfunction");
-        Intent intent = new Intent(this,MyDisplayFriend.class); // from this context to the new activity
+        Intent intent = new Intent(this, MyDisplayFriend.class); // from this context to the new activity
         //String message = "Hello";
         //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);

@@ -39,7 +39,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".FriendListAdapter"
+            android:name=".ui.friends.FriendListAdapter"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -47,7 +47,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MyDisplayFriend"
+            android:name=".ui.friends.MyDisplayFriend"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -55,7 +55,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MyFriendsActivity"
+            android:name=".ui.friends.MyFriendsActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -71,7 +71,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".bluetooth.BluetoothActivity"
+            android:name=".ui.bluetooth.BluetoothActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -79,7 +79,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".QRCodeActivity"
+            android:name=".ui.friends.qrscanner.QRCodeActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data

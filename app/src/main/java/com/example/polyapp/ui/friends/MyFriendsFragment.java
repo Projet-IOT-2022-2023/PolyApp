@@ -11,8 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.polyapp.MainActivity;
-import com.example.polyapp.MyFriendsActivity;
-import com.example.polyapp.QRCodeActivity;
+import com.example.polyapp.ui.friends.qrscanner.QRCodeActivity;
 import com.example.polyapp.R;
 
 public class MyFriendsFragment extends Fragment {
