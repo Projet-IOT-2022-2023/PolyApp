@@ -43,7 +43,6 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
             vendorItemView = itemView.findViewById(R.id.vendor);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
-
         }
 
 
@@ -63,14 +62,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
             b.putInt("promoID", resourceID); //Your id
             intent.putExtras(b); //Put your id to your next Intent
             v.getContext().startActivity(intent);
-
-            //          Intent intent = new Intent (v.getContext(),MyDisplayFriend.class);// the trick : indicates v.getContext()...
-            //String message = String.valueOf(sensorClicked.getType());
-            //intent.putExtra(EXTRA_MESSAGE, message);
-            //          v.getContext().startActivity(intent);// the trick : indicates v.getContext()...
         }
-
-
     }
 
 
@@ -87,44 +79,17 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
     @Override //populate the view
     public void onBindViewHolder( FriendListAdapter.FriendViewHolder holder, int position) {
         String mCurrent;
-
-        /*
-        for (UserStruct currentFriend : mSensorList ) {
-            mCurrent = currentFriend.last_name;
-            holder.sensorItemView.setText(mCurrent);
-            mCurrent = currentFriend.first_name;
-            holder.typeItemView.setText(mCurrent);
-            mCurrent = currentFriend.getPromoName();
-            holder.vendorItemView.setText(mCurrent);
-        }*/
-
         mCurrent = mSensorList.get(position).last_name;
         holder.sensorItemView.setText(mCurrent);
         mCurrent =  mSensorList.get(position).first_name;
         holder.typeItemView.setText(mCurrent);
         mCurrent =  mSensorList.get(position).getPromoName();
         holder.vendorItemView.setText(mCurrent);
-
-        /*
-        mCurrent= mSensorList.get(position).getName();
-        holder.sensorItemView.setText(mCurrent);
-        mCurrent= "Type :"+mSensorList.get(position).getType();
-        holder.typeItemView.setText(mCurrent);
-        mCurrent= "Vendor :"+mSensorList.get(position).getVendor();
-        holder.vendorItemView.setText(mCurrent);
-        mCurrent= "Resolution :"+mSensorList.get(position).getResolution();
-        holder.resolutionItemView.setText(mCurrent);
-        mCurrent= "Power :"+mSensorList.get(position).getPower();
-        holder.powerItemView.setText(mCurrent);
-        mCurrent= "Version :"+mSensorList.get(position).getVersion();
-        holder.versionItemView.setText(mCurrent);
-        */
-
-
     }
 
     @Override //get the list size
     public int getItemCount() {
         return mSensorList.size();
     }
+
 }

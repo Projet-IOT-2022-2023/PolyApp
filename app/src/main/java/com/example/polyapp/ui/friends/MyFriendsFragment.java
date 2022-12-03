@@ -57,12 +57,7 @@ public class MyFriendsFragment extends Fragment {
         {
             view = inflater.inflate(R.layout.fragment_home_unregistered, container, false);
         }
-
-
-
-
         return view;
-
     }
 
     @Override
