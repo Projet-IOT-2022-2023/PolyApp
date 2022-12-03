@@ -21,6 +21,10 @@ La page des amis permet à l'utilisateur de visualiser ses amis et de les ajoute
 
 ### Ajout d'un ami
 
+## Architecture de PolyApp
+
+![Architecture](https://github.com/Projet-IOT-2022-2023/PolyApp/raw/main/imgs/scheme-polyapp.png)
+
 ## Credits
 
 > Copyright (c) 2022 Lypotech
