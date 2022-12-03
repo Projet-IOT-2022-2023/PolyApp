@@ -9,96 +9,60 @@
     <ListView
         android:id="@+id/listdevices"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttongetnewdevices">
+        tools:layout_editor_absoluteY="98dp">
 
     </ListView>
 
     <TextView
         android:id="@+id/textreceiveddisplayed"
-        android:layout_width="229dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="20dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         android:text="@string/textreceiveddisplayed"
         android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/textreceived"
-        app:layout_constraintTop_toTopOf="@+id/textreceived" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonsend"
+        tools:layout_editor_absoluteX="75dp" />
 
     <Button
         android:id="@+id/buttonlisten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
         android:text="@string/buttonlisten"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttongetnewdevices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/buttongetnewdevices"
-        app:layout_constraintStart_toEndOf="@+id/buttonlisten"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/buttongetvisible"
+        app:layout_constraintTop_toTopOf="@+id/buttongetvisible" />
 
     <Button
         android:id="@+id/buttongetvisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
         android:text="@string/buttonsgetvsible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/texttosend" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonsend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
         android:text="@string/buttonsend"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textreceived" />
-
-    <TextView
-        android:id="@+id/textreceived"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/textreceived"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listdevices" />
-
-    <EditText
-        android:id="@+id/texttosend"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/texttosend"
-        android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/buttonsend"
-        app:layout_constraintTop_toBottomOf="@+id/textreceiveddisplayed" />
 
     <TextView
         android:id="@+id/textstatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
         android:text="@string/textstatus"
-        app:layout_constraintStart_toEndOf="@+id/buttongetnewdevices"
-        app:layout_constraintTop_toTopOf="@+id/buttongetnewdevices" />
+        app:layout_constraintStart_toEndOf="@+id/buttonlisten"
+        tools:layout_editor_absoluteY="45dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
