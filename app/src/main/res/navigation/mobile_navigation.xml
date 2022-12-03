@@ -9,17 +9,17 @@
         android:id="@+id/nav_home"
         android:name="com.example.polyapp.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_not_registered" />
+        tools:layout="@layout/fragment_home_unregistered" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.polyapp.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/user_connected_gallery" />
+        tools:layout="@layout/fragment_home_registered" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.polyapp.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_bluetooth" />
 </navigation>

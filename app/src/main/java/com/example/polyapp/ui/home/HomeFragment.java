@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
 /*
         if (users.getMainUser() != null)
         {
-            view = inflater.inflate(R.layout.user_connected_gallery, container, false);
+            view = inflater.inflate(R.layout.fragment_home_registered, container, false);
             userNameText = (TextView) view.findViewById(R.id.userName);
             userFirstNameText = (TextView) view.findViewById(R.id.userFirstName);
             userPromoText = (TextView) view.findViewById(R.id.userPromo);
@@ -98,7 +98,7 @@ public class HomeFragment extends Fragment {
 
         else
         {
-            view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
+            view = inflater.inflate(R.layout.fragment_my_friends, container, false);
             buttonQRScan = (Button) view.findViewById(R.id.buttonEditData);
             userNameText = (TextView) view.findViewById(R.id.setUserName);
             userFirstNameText = (TextView) view.findViewById(R.id.setUserFirstName);
@@ -121,7 +121,7 @@ public class HomeFragment extends Fragment {
         }
 */
 
-        view = inflater.inflate(R.layout.user_connected_gallery, container, false);
+        view = inflater.inflate(R.layout.fragment_home_registered, container, false);
 
         textViewStatus = (TextView) view.findViewById(R.id.textViewStatus);
         buttonEditData = (Button) view.findViewById(R.id.buttonEditData);
@@ -173,12 +173,12 @@ public class HomeFragment extends Fragment {
 
 
 
-        //view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
-        //view = inflater.inflate(R.layout.user_connected_gallery, container, false);
+        //view = inflater.inflate(R.layout.fragment_my_friends, container, false);
+        //view = inflater.inflate(R.layout.fragment_home_registered, container, false);
 
 
-        //view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
-        //view = inflater.inflate(R.layout.user_connected_gallery, container, false);
+        //view = inflater.inflate(R.layout.fragment_my_friends, container, false);
+        //view = inflater.inflate(R.layout.fragment_home_registered, container, false);
         //Log.d("AAAAAAAAA", users.getUserById(0).toString());
         //Log.d("Name", users.getMainUser().first_name);
         //Log.d("Last name", users.getMainUser().last_name);
@@ -186,7 +186,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        //View view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
+        //View view = inflater.inflate(R.layout.fragment_my_friends, container, false);
 
 /*
         buttonQRScan.setOnClickListener(new View.OnClickListener() {

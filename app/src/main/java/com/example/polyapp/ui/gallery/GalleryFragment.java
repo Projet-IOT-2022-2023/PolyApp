@@ -33,7 +33,7 @@ public class GalleryFragment extends Fragment {
         // Read DB here to handle which window should be open
         if (((MainActivity)getActivity()).getMainUserRegist())
         {
-            view = inflater.inflate(R.layout.user_not_connected_gallery, container, false);
+            view = inflater.inflate(R.layout.fragment_my_friends, container, false);
             buttonAddFriend = (Button) view.findViewById(R.id.buttonAddFriend);
             buttonMyFriends = (Button) view.findViewById(R.id.buttonMyFriends);
 
@@ -56,7 +56,7 @@ public class GalleryFragment extends Fragment {
 
         else
         {
-            view = inflater.inflate(R.layout.fragment_not_registered, container, false);
+            view = inflater.inflate(R.layout.fragment_home_unregistered, container, false);
         }
 
 

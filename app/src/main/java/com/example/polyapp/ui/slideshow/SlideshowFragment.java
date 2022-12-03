@@ -25,7 +25,7 @@ public class SlideshowFragment extends Fragment {
 
         if (((MainActivity)getActivity()).getMainUserRegist())
         {
-            view = inflater.inflate(R.layout.fragment_slideshow, container, false);
+            view = inflater.inflate(R.layout.fragment_bluetooth, container, false);
 
             Button button = (Button) view.findViewById(R.id.buttonAddFriend);
 
@@ -39,7 +39,7 @@ public class SlideshowFragment extends Fragment {
         }
 
         else
-            view = inflater.inflate(R.layout.fragment_not_registered, container, false);
+            view = inflater.inflate(R.layout.fragment_home_unregistered, container, false);
 
         return view;
     }
