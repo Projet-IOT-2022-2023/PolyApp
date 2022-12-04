@@ -21,6 +21,16 @@ La page des amis permet à l'utilisateur de visualiser ses amis et de les ajoute
 
 ### Ajout d'un ami
 
+Lorsque l'utilisateur scanne le QR Code d'un ami, il est redirigé vers une page lui demandant de valider l'ajout de l'ami. Si l'utilisateur valide l'ajout, l'ami est ajouté à la liste des amis de l'utilisateur. Si l'utilisateur annule l'ajout, l'ami n'est pas ajouté à sa liste d'amis.
+
+### Visualisation de sa liste d'amis
+
+Lorsque l'utilisateur clique sur le bouton "Mes amis", il est redirigé vers une page lui permettant de visualiser sa liste d'amis. Chaque ami est représenté par un canvas contenant le nom, le prénom et la promotion de l'ami. Lorsque l'utilisateur clique sur un ami, il est redirigé vers une page lui permettant de visualiser son emploi du temps.
+
+### Consultation de l'emploi du temps d'un ami
+
+Lorsque l'utilisateur clique sur un ami, il est redirigé vers une page lui permettant de visualiser son emploi du temps. L'emploi du temps est représenté par des onglets qui correspondent aux dates de la semaine. Lorsque l'utilisateur clique sur un onglet, il est redirigé vers une page lui permettant de visualiser les cours de la journée sélectionnée. Chaque cours est représenté par un canvas contenant le nom du cours, le nom du professeur, le lieu du cours et l'heure de début et de fin du cours.
+
 ## Fonctionnement de l'application
 
 ### Architecture de l'application
