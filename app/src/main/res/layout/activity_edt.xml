@@ -102,7 +102,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textViewName"
                     android:layout_width="match_parent"
                     android:layout_height="200px"
                     android:background="#FFFFFF"
@@ -111,7 +111,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/textViewFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="200px"
                     android:background="#E6E6E6"

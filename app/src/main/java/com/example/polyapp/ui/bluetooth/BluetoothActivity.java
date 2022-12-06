@@ -27,6 +27,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.polyapp.R;
 import com.example.polyapp.edt.DBManager;
 import com.example.polyapp.edt.UserManager;
+import com.example.polyapp.ui.friends.qrscanner.QRCodeActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -166,6 +167,7 @@ public class BluetoothActivity extends AppCompatActivity {
                 usersByte = users.usersToBytes();
 
                 sendReceive.write(usersByte);
+                BluetoothActivity.super.onBackPressed();
 
             }
         });
@@ -194,7 +196,7 @@ public class BluetoothActivity extends AppCompatActivity {
                     byte[] readBuff = (byte[]) msg.obj;
 
                     if( users.addUsersWithByteArray(readBuff) == 0){
-                        mTextreceiveddisplayed.setText("Message reçu");
+                        mTextreceiveddisplayed.setText("Nouvel appareil synchronisé");
                     }else{
                         mTextreceiveddisplayed.setText("Erreur lors du parsing");
                     }

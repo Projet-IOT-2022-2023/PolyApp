@@ -17,7 +17,7 @@ import com.example.polyapp.edt.UserManager;
 
 public class QRCodeActivity extends AppCompatActivity implements ScanResultReceiver {
 
-    private TextView txt, formatTxt, contentTxt, name, firstName, cat;
+    private TextView statusTxt, name, firstName, promo;
     private Button btn;
     private Button buttonConfirmFriend;
     private Button buttonCancelFriend;
@@ -36,19 +36,17 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode);
 
-        txt = (TextView)findViewById(R.id.textView10);
-        formatTxt = (TextView)findViewById(R.id.textView2);
-        contentTxt = (TextView)findViewById(R.id.textView3);
-        name = (TextView)findViewById(R.id.textView4);
-        firstName = (TextView)findViewById(R.id.textView5);
-        cat = (TextView)findViewById(R.id.textView6);
+        statusTxt = (TextView)findViewById(R.id.textView10);
+        name = (TextView)findViewById(R.id.textViewName);
+        firstName = (TextView)findViewById(R.id.textViewFirstName);
+        promo = (TextView)findViewById(R.id.textViewPromo);
         img = (ImageView)findViewById(R.id.imageView3);
 
         btn = (Button)findViewById(R.id.buttonQRScan);
         buttonConfirmFriend = (Button)findViewById(R.id.buttonConfirmFriend);
         buttonCancelFriend = (Button)findViewById(R.id.buttonCancelFriend);
 
-        txt.setVisibility(View.INVISIBLE);
+        statusTxt.setVisibility(View.INVISIBLE);
         img.setVisibility(View.INVISIBLE);
         buttonConfirmFriend.setVisibility(View.INVISIBLE);
         buttonCancelFriend.setVisibility(View.INVISIBLE);
@@ -83,8 +81,8 @@ public class QRCodeActivity extends AppCompatActivity implements ScanResultRecei
         //contentTxt.setText("CONTENT: " + codeContent);
         name.setText("Nom : " + dataSeparated[0]);
         firstName.setText("Prénom : " + dataSeparated[1]);
-        cat.setText("Promo : " + dataSeparated[2]);
-        txt.setVisibility(View.VISIBLE);
+        promo.setText("Promo : " + dataSeparated[2]);
+        statusTxt.setVisibility(View.VISIBLE);
         btn.setVisibility(View.INVISIBLE);
         img.setVisibility(View.VISIBLE);
         buttonConfirmFriend.setVisibility(View.VISIBLE);
