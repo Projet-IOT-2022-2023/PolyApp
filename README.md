@@ -101,6 +101,29 @@ Il est composé de deux classes:
 - `HomeFragment` qui permet d'afficher la page d'accueil de l'application. Si l'utilisateur a saisi son nom, prénom et promo, il est affiché sur la page d'accueil avec son QR Code. Sinon, il est invité à saisir ses informations via la classe `HomeEditActivity`.
 - `HomeEditActivity` qui permet de saisir les informations de l'utilisateur (nom, prénom, promo) et de les enregistrer dans la BDD (via `UserManager`).
 
+## Prtocole de communication
+
+### Mise en place du protocole wifi
+
+### Mise en place du protocole bluetooth
+
+Tout d'abord afin de mettre en place le bluetooth il faut ajouter les permissions suivantes dans le fichier `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:maxSdkVersion="28" />
+<uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+Les différentes conditions de SDK sont là pour éviter les erreurs de compilation du au fait que certaines permissions ne sont plus utilisées à partir d'une certaine version de l'API.
+
+Après avoir ajouté les permissions, dans le fichier BluetoothActivity.java
+
+
+
 ## Credits
 
 > Copyright (c) 2022 Lypotech
