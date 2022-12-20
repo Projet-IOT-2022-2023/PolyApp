@@ -101,26 +101,28 @@ Il est composé de deux classes:
 - `HomeFragment` qui permet d'afficher la page d'accueil de l'application. Si l'utilisateur a saisi son nom, prénom et promo, il est affiché sur la page d'accueil avec son QR Code. Sinon, il est invité à saisir ses informations via la classe `HomeEditActivity`.
 - `HomeEditActivity` qui permet de saisir les informations de l'utilisateur (nom, prénom, promo) et de les enregistrer dans la BDD (via `UserManager`).
 
-## Prtocole de communication
+## Protocole de communication
 
 ### Mise en place du protocole wifi
 
 ### Mise en place du protocole bluetooth
 
-Tout d'abord afin de mettre en place le bluetooth il faut ajouter les permissions suivantes dans le fichier `AndroidManifest.xml`:
+Afin de comprendre comment a été mis en place en place le bluetooth au sein de l'application, il nous parait essentiel d'aborder le contenu de l'activité ou est utilisé le bluetooth.
+Voici ci-contre une image de l'activité `BluetoothActivity`:
 
-```xml
-<uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:maxSdkVersion="28" />
-<uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
-<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-```
-Les différentes conditions de SDK sont là pour éviter les erreurs de compilation du au fait que certaines permissions ne sont plus utilisées à partir d'une certaine version de l'API.
+Cette activité est constituée de différents éléments:
+- Un bouton 'Get Visible' qui permet de rendre l'appareil visible pour les autres appareils bluetooth.
+- Un bouton 'Listen' qui permet de lancer l'écoute des appareils bluetooth et ainsi trouver les appareils appairés.
+- Une ListView qui permet d'afficher la liste des appareils bluetooth appairés trouvés et de se connecter à l'appareil choisi.
+- Un TextView qui permet d'afficher le statut connecté, en cours de connexion ou non connecté.
 
-Après avoir ajouté les permissions, dans le fichier BluetoothActivity.java
+Pour mettre en place, ce protocole plusieurs étapes ont été nécessaires.
+
+Tout d'abord afin de mettre en place le bluetooth il est nécessaire d'ajouter des permissions dans le fichier `AndroidManifest.xml`.
+
+Les permissions nécessaires sont BLUETOOTH, BLUETOOTH_ADMIN, BLUETOOTH_SCAN, BLUETOOTH_ADVERTISE, BLUETOOTH_CONNECT, ACCESS_FINE_LOCATION et ACCESS_COARSE_LOCATION. Pour BLUETOOTH, BLUETOOTH_ADMIN et ACCESS_COARSE_LOCATION, il est nécessaire de préciser la version de l'API jusqu'à laquelle la permission est autorisée. Pour les autres permissions, il n'est pas nécessaire de préciser la version de l'API. Cela permet de ne pas avoir de problème de compatibilité avec les anciennes versions d'Android.
+
+Après avoir ajouté les permissions, dans le fichier BluetoothActivity.java, la première étape pour mettre en place le bluetooth est de vérifier si l'appareil dispose du bluetooth. Si ce n'est pas le cas, un message d'erreur est affiché. Sinon, le bluetooth est activé 
 
 
 
