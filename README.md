@@ -122,8 +122,17 @@ Tout d'abord afin de mettre en place le bluetooth il est nécessaire d'ajouter d
 
 Les permissions nécessaires sont BLUETOOTH, BLUETOOTH_ADMIN, BLUETOOTH_SCAN, BLUETOOTH_ADVERTISE, BLUETOOTH_CONNECT, ACCESS_FINE_LOCATION et ACCESS_COARSE_LOCATION. Pour BLUETOOTH, BLUETOOTH_ADMIN et ACCESS_COARSE_LOCATION, il est nécessaire de préciser la version de l'API jusqu'à laquelle la permission est autorisée. Pour les autres permissions, il n'est pas nécessaire de préciser la version de l'API. Cela permet de ne pas avoir de problème de compatibilité avec les anciennes versions d'Android.
 
-Après avoir ajouté les permissions, dans le fichier BluetoothActivity.java, la première étape pour mettre en place le bluetooth est de vérifier si l'appareil dispose du bluetooth. Si ce n'est pas le cas, un message d'erreur est affiché. Sinon, le bluetooth est activé 
+Après avoir ajouté les permissions, dans le fichier BluetoothActivity.java, la première étape pour mettre en place le bluetooth est de vérifier si l'appareil dispose du bluetooth en utilisant un BluetoothAdapter. Si l'appareil dispose du bluetooth, on peut alors utiliser le bluetooth en acceptant la notification qui sera affiché. Sinon, un message d'erreur est affiché.
 
+Ensuite, vient la réalisation des différentes activité pour chaque bouton de l'activité.
+
+Concernant le bouton 'Listen', afin de pouvoir interroger les appareils appairés, il est nécessaire d'appeler la fonction getBondedDevices() de l'objet BluetoothAdapter. Cette fonction renvoie une liste d'appareils appairés. Pour chaque appareil appairé, on ajoute le nom de l'appareil dans la liste de l'activité. Pour cela, on utilise un ArrayAdapter qui permet d'afficher la liste des appareils appairés.
+
+La liste des appareils appairés est affichée dans la ListView de l'activité et lorsque l'utilisateur clique sur un appareil, il va se connecter à l'appareil choisi.
+
+Par la suite, si l'appareil désiré n'apparaît pas dans la liste des appareils appairés, il sera possible via le bouton 'Get visible' de rendre l'appareil visible pour les autres utilisateurs mais pour pouvoir l'ajouter l'utilisateur devra associer l'appareil en passant par les paramètres de son téléphone.
+
+Pour finir sur le bluetooth, le bouton 'envoyer' permettra à l'utilisateur d'envoyer ces données vers un autre. Afin de mettre en place cela, il a fallu réaliser 3 classes. La première permettant de mettre l'appareil se connectant à l'autre en tant que serveur. La seconde quant à elle configure l'autre appareil en tant que client et la 3eme classe va gérer l'envoi des données.
 
 
 ## Credits
