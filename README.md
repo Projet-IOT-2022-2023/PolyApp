@@ -115,6 +115,7 @@ Cette activité est constituée de différents éléments:
 - Un bouton 'Listen' qui permet de lancer l'écoute des appareils bluetooth et ainsi trouver les appareils appairés.
 - Une ListView qui permet d'afficher la liste des appareils bluetooth appairés trouvés et de se connecter à l'appareil choisi.
 - Un TextView qui permet d'afficher le statut connecté, en cours de connexion ou non connecté.
+- Un bouton 'Envoyer' qui permet de transférer des données à l'appareil connecté.
 
 Pour mettre en place, ce protocole plusieurs étapes ont été nécessaires.
 
