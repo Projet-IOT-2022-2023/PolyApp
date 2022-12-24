@@ -110,6 +110,8 @@ Il est composé de deux classes:
 Afin de comprendre comment a été mis en place en place le bluetooth au sein de l'application, il nous parait essentiel d'aborder le contenu de l'activité ou est utilisé le bluetooth.
 Voici ci-contre une image de l'activité `BluetoothActivity`:
 
+![BluetoothActivity](https://i.imgur.com/6zcvesF.png)
+
 Cette activité est constituée de différents éléments:
 - Un bouton 'Get Visible' qui permet de rendre l'appareil visible pour les autres appareils bluetooth.
 - Un bouton 'Listen' qui permet de lancer l'écoute des appareils bluetooth et ainsi trouver les appareils appairés.
