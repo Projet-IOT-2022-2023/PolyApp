@@ -103,14 +103,50 @@ Il est composé de deux classes:
 
 ## Protocole de communication
 
-### Mise en place du protocole wifi
+### Mise en place du protocole wifi (utilisation d'internet)
+
+La mise en place du protocole wifi permet de récupérer l'emploi du temps de tous les élèves pour le stocker puis l'afficher sur l'activité `EDTActivity`. Voici un screenshot de l'activité en question ci-dessous:
+
+![EDTActivity](https://github.com/Projet-IOT-2022-2023/PolyApp/raw/main/imgs/edtactivity.png)
+
+Sur cette activité, l'utilisateur a la possibilité de:
+- sélectionner le jour souhaité via la date et les boutons (NEXT et BACK) situées en haut  
+- naviguer entre les différentes plages horaires en utilisant le scrolling vertical
+- afficher les détails d'un événement en cliquant sur celui-ci
+- actualiser l'emploi du temps en appuyant sur le bouton en bas à droite
+
+Dans toutes les fonctionnalités de `EDTActivity`, seule la fonction d'actualisation utilise le wifi. Pour mettre en place cette fonction d'actualisation, plusieurs étapes ont été nécessaires.
+
+Tout d'abord, il est nécessaire d'ajouter différentes permissions dans le fichier `AndroidManifest.xml`, afin de permettre l'usage d'internet (le wifi) et le stockage des données. Les permissions suivantes ont étés ajoutés:
+- `INTERNET`: pour autoriser l'application à accéder à internet
+- `WRITE_EXTERNAL_STORAGE`, `READ_EXTERNAL_STORAGE` et `MANAGE_EXTERNAL_STORAGE`: pour permettre le téléchargement de l'emploi du temps pour l'ajouter à la base de données dans un second temps.
+
+Une fonction (`requestAppPermissions()`) a également été ajouté dans le `MainActivity` pour demander les accès au stockage si ce n'est pas déjà le cas.
+
+Une fois les permissions ajoutées, l'application doit télécharger les différents emplois du temps en format `.ics` sur le site internet de l'université (en indiquant l'ID de la promo) pour ensuite le stocker temporairement. Pour cela, la fonction `DownloadManager` intégrée à Android est utilisée. Cette fonction est exécutée dans la classe `EDTDownload` de manière asynchrone pour chaque spécialité via la classe `EDTRefresh`. Tous les fichiers téléchargés sont stockés temporairement dans `Downloads/PolyApp`. Pour chaque lancement de téléchargement, un événement est créé qui sera exécuté lorsque le téléchargement est terminé.
+
+Lorsque le téléchargement du fichier est fini, l'évènement va récupérer le fichier via le nom de celui-ci pour en faire un `FileInputStream` qui sera mis en paramètre avec l'ID de la promo dans la fonction de parsing située dans la classe `EDTParse`.
+
+Cette fonction de parsing a pour but de lire tous les événements situés dans le fichier `.ics`, pour le mettre dans un format plus lisible par l'application à l'intérieur d'une base de données SQLite. Pour cela, la fonction va lire ligne par ligne le fichier. Ensuite, elle va repérer les mots clés suivants:
+- `SUMMARY`: qui indique le nom de l'événement
+- `DTSTART`: qui indique la date (avec l'heure) à laquelle l'événement commence (la valeur récupérée est convertie sous forme de timestamp pour permettre la sélection et le tri par date dans la base de données)
+- `DTEND`: qui indique la date (avec l'heure) à laquelle l'événement fini (la valeur récupérée est également convertie sous forme de timestamp pour permettre la sélection et le tri par date dans la base de données)
+- `LOCATION`: qui indique le lieu où se situe l'événement
+- `END`: qui signifie qu'il n'y a pas d'autres informations liées à cet événement (si il y a d'autres lignes en dessous, cela veut dire qu'il s'agit d'un nouvel événement)
+
+Lorsque le mot clé `END` est détecté, la fonction va enregistrer dans la base de données les dernières valeurs de `SUMMARY`, `DTSTART`, `DTEND` et `LOCATION` comme un nouvel événement.
+
+Une fois tous les événements ajoutés à la base de données, ils pourront être récupérés par la classe `EDTActivity` via la classe `EDTGet`. `EDTGet` a pour but de trier et de classer les différents événements et retourner les événements voulus sous une structure facilement exploitable par l'activité (`EventStruct`).
+
+Il ne restera plus qu'à `EDTActivity` de placer sur l'écran les différents événements (en générant un `TextView` par événement) en fonction de l'heure de ces derniers.
+
 
 ### Mise en place du protocole bluetooth
 
 Afin de comprendre comment a été mis en place en place le bluetooth au sein de l'application, il nous parait essentiel d'aborder le contenu de l'activité ou est utilisé le bluetooth.
 Voici ci-contre une image de l'activité `BluetoothActivity`:
 
-![BluetoothActivity](https://i.imgur.com/6zcvesF.png)
+![BluetoothActivity](https://github.com/Projet-IOT-2022-2023/PolyApp/raw/main/imgs/bluetoothactivity.png)
 
 Cette activité est constituée de différents éléments:
 - Un bouton 'Get Visible' qui permet de rendre l'appareil visible pour les autres appareils bluetooth.
