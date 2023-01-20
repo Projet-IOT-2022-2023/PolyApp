@@ -2,7 +2,7 @@
 [![java](https://img.shields.io/badge/language-java-%23f34b7d.svg?style=plastic)](https://en.wikipedia.org/wiki/Java_(programming_language)) 
 [![android](https://img.shields.io/badge/platform-android-0078d7.svg?style=plastic)](https://en.wikipedia.org/wiki/Android_(operating_system))
 
-Ce projet a pour but de créer une application Android permettant de se créer un profil, ajouter des amis, et de pouvoir visualiser leur emploi du temps. L'application utilise notamment les fonctionnalités natives du smartphone tel que la caméra, le Wi-Fi et le bluetooth.
+Ce projet a pour but de créer une application Android permettant de se créer un profil, d'ajouter des amis, et de pouvoir visualiser leur emploi du temps. L'application utilise notamment les fonctionnalités natives du smartphone telles que la caméra, le Wi-Fi et le bluetooth.
 
 ## Installation
 
