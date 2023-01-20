@@ -110,7 +110,7 @@ La mise en place du protocole wifi permet de récupérer l'emploi du temps de to
 ![EDTActivity](https://github.com/Projet-IOT-2022-2023/PolyApp/raw/main/imgs/edtactivity.png)
 
 Sur cette activité, l'utilisateur a la possibilité de:
-- sélectionner le jour souhaité via la date et les boutons (NEXT et BACK) situées en haut  
+- sélectionner le jour souhaité via la date et les boutons (NEXT et BACK) situés en haut  
 - naviguer entre les différentes plages horaires en utilisant le scrolling vertical
 - afficher les détails d'un événement en cliquant sur celui-ci
 - actualiser l'emploi du temps en appuyant sur le bouton en bas à droite
@@ -143,7 +143,7 @@ Il ne restera plus qu'à `EDTActivity` de placer sur l'écran les différents é
 
 ### Mise en place du protocole bluetooth
 
-Afin de comprendre comment a été mis en place en place le bluetooth au sein de l'application, il nous parait essentiel d'aborder le contenu de l'activité ou est utilisé le bluetooth.
+Afin de comprendre comment a été mis en place en place le bluetooth au sein de l'application, il nous parait essentiel d'aborder le contenu de l'activité où est utilisé le bluetooth.
 Voici ci-contre une image de l'activité `BluetoothActivity`:
 
 ![BluetoothActivity](https://github.com/Projet-IOT-2022-2023/PolyApp/raw/main/imgs/bluetoothactivity.png)
@@ -157,13 +157,13 @@ Cette activité est constituée de différents éléments:
 
 Pour mettre en place, ce protocole plusieurs étapes ont été nécessaires.
 
-Tout d'abord afin de mettre en place le bluetooth il est nécessaire d'ajouter des permissions dans le fichier `AndroidManifest.xml`.
+Tout d'abord, afin de mettre en place le bluetooth il est nécessaire d'ajouter des permissions dans le fichier `AndroidManifest.xml`.
 
 Les permissions nécessaires sont BLUETOOTH, BLUETOOTH_ADMIN, BLUETOOTH_SCAN, BLUETOOTH_ADVERTISE, BLUETOOTH_CONNECT, ACCESS_FINE_LOCATION et ACCESS_COARSE_LOCATION. Pour BLUETOOTH, BLUETOOTH_ADMIN et ACCESS_COARSE_LOCATION, il est nécessaire de préciser la version de l'API jusqu'à laquelle la permission est autorisée. Pour les autres permissions, il n'est pas nécessaire de préciser la version de l'API. Cela permet de ne pas avoir de problème de compatibilité avec les anciennes versions d'Android.
 
 Après avoir ajouté les permissions, dans le fichier BluetoothActivity.java, la première étape pour mettre en place le bluetooth est de vérifier si l'appareil dispose du bluetooth en utilisant un BluetoothAdapter. Si l'appareil dispose du bluetooth, on peut alors utiliser le bluetooth en acceptant la notification qui sera affiché. Sinon, un message d'erreur est affiché.
 
-Ensuite, vient la réalisation des différentes activité pour chaque bouton de l'activité.
+Ensuite, vient la réalisation des différentes activités pour chaque bouton de l'activité.
 
 Concernant le bouton 'Listen', afin de pouvoir interroger les appareils appairés, il est nécessaire d'appeler la fonction getBondedDevices() de l'objet BluetoothAdapter. Cette fonction renvoie une liste d'appareils appairés. Pour chaque appareil appairé, on ajoute le nom de l'appareil dans la liste de l'activité. Pour cela, on utilise un ArrayAdapter qui permet d'afficher la liste des appareils appairés.
 
