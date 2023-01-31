@@ -174,6 +174,11 @@ Par la suite, si l'appareil désiré n'apparaît pas dans la liste des appareils
 Pour finir sur le bluetooth, le bouton 'envoyer' permettra à l'utilisateur d'envoyer ces données vers un autre. Afin de mettre en place cela, il a fallu réaliser 3 classes. La première permettant de mettre l'appareil se connectant à l'autre en tant que serveur. La seconde quant à elle configure l'autre appareil en tant que client et la 3eme classe va gérer l'envoi des données.
 
 
+## Informations supplémanetaires
+
+Lien vers notre présentation de l'applciation contenant une vidéo de démonstration : https://drive.google.com/drive/folders/1TxkrJEqHCQ_9SE6QS3k2CgFmrde--v6W?usp=share_link
+
+
 ## Credits
 
 > Copyright (c) 2022 Lypotech
